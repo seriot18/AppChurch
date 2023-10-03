@@ -8,10 +8,14 @@ import ListadoMiembrosComponent from './components/listado-miembros/listado-miem
 import { VerMiembrosComponent } from './components/ver-miembros/ver-miembros.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-//@angular material
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import {MatTableModule} from '@angular/material/table';
-import {MatPaginatorModule} from '@angular/material/paginator';
+//Modulos
+import { SharedModule } from './shared/shared.module';
+
+
+
+
+
+
 
 
 
@@ -27,9 +31,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatSlideToggleModule,
-    MatTableModule,
-    MatPaginatorModule
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]

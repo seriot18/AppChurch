@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import { miembros } from 'src/app/interfaces/miembros';
 
@@ -40,11 +41,12 @@ const listaMiembros: miembros[] = [
 
 
 export default class ListadoMiembrosComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[] = ['id', 'nombre', 'apellido', 'fechanac', 'fechabautismo'];
+  displayedColumns: string[] = ['id', 'nombre', 'apellido', 'fechanac', 'fechabautismo', 'acciones'];
   //dataSource = listaMiembros;
   dataSource = new MatTableDataSource<miembros>(listaMiembros);
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
 
   constructor(){
 
@@ -57,6 +59,16 @@ export default class ListadoMiembrosComponent implements OnInit, AfterViewInit {
 
    ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
+    this.paginator._intl.itemsPerPageLabel='Elementos por Página';
+    this.dataSource.sort = this.sort;
   }
 
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+
+  }
 }
