@@ -12,10 +12,19 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatGridListModule} from '@angular/material/grid-list';
+
+
+//componentes
+import { SpinnerComponent } from './spinner/spinner.component';
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    SpinnerComponent
+  ],
   imports: [
     MatSlideToggleModule,
     MatTableModule,
@@ -26,7 +35,10 @@ import {MatCardModule} from '@angular/material/card';
     MatIconModule,
     MatTooltipModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatSnackBarModule,
+    MatProgressBarModule,
+    MatGridListModule
   ],
   exports:[
     MatSlideToggleModule,
@@ -38,7 +50,11 @@ import {MatCardModule} from '@angular/material/card';
     MatIconModule,
     MatTooltipModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatSnackBarModule,
+    SpinnerComponent,
+    MatProgressBarModule,
+    MatGridListModule
   ]
 })
 

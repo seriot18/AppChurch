@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import { miembros } from 'src/app/interfaces/miembros';
@@ -44,11 +45,12 @@ export default class ListadoMiembrosComponent implements OnInit, AfterViewInit {
   displayedColumns: string[] = ['id', 'nombre', 'apellido', 'fechanac', 'fechabautismo', 'acciones'];
   //dataSource = listaMiembros;
   dataSource = new MatTableDataSource<miembros>(listaMiembros);
+  loading:boolean=false;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(){
+  constructor(private _snackBar: MatSnackBar){
 
   }
 
@@ -61,6 +63,22 @@ export default class ListadoMiembrosComponent implements OnInit, AfterViewInit {
     this.dataSource.paginator = this.paginator;
     this.paginator._intl.itemsPerPageLabel='Elementos por Página';
     this.dataSource.sort = this.sort;
+  }
+
+  eliminarmiembro(){
+    this.loading=true;
+    setTimeout(()=>{
+      this.loading=false;
+      this._snackBar.open("Miembro Eliminado con Exito","Cerrar", {
+        duration:4000,
+        horizontalPosition:'right'
+        
+      });
+    },3000);
+
+
+    
+
   }
 
   applyFilter(event: Event) {

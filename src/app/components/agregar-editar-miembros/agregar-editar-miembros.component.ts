@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./agregar-editar-miembros.component.css']
 })
 export class AgregarEditarMiembrosComponent {
+  loading:boolean=false;
+
+
+  constructor(){
+
+  }
+
+  ngOnInit(){
+
+  }
 
 }
