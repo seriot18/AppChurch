@@ -18,7 +18,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 
@@ -46,7 +46,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
     MatGridListModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    BrowserAnimationsModule
   ],
   exports:[
     MatSlideToggleModule,
@@ -65,6 +66,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
     MatGridListModule,
     MatDatepickerModule,
     MatAutocompleteModule,
+    BrowserAnimationsModule
 
   ]
 })
