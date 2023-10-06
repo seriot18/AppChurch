@@ -53,23 +53,30 @@
 
 
                    <mat-form-field> 
-                        <mat-label>Cargo</mat-label>
-                        <input matInput type="text"
+                        <mat-label>
+                            Cargo
+                        </mat-label>
+                        <input
+                               matInput type="text"
                                placeholder="Escriba el Cargo"
                                [formControl]="control"
                                [matAutocomplete]="auto"                    
                                >
-                </mat-form-field>
+                    </mat-form-field>
              <mat-autocomplete #auto="matAutocomplete">
-               <mat-option *ngFor="let Cargos of filteredStreets | async" [value]="Cargos">
+               <mat-option *ngFor="let Cargos of filtrocargos | async" [value]="Cargos">
                  {{Cargos}}
                </mat-option>
              </mat-autocomplete>
 
 
+            </mat-grid-tile>
+                <mat-grid-tile [colspan]="2" >
+                    <button mat-raised-button color="primary" routerLink="/ListadoMiembros" >
+                        Aceptar                    
+                    </button>
                 </mat-grid-tile>
-                <mat-grid-tile [colspan]="2" ><button mat-raised-button color="primary" routerLink="/ListadoMiembros" >Aceptar</button></mat-grid-tile>
-              </mat-grid-list>
+            </mat-grid-list>
 
         </form>
     </mat-card>

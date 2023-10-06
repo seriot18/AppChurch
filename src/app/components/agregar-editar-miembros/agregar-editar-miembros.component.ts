@@ -23,10 +23,10 @@ export class AgregarEditarMiembrosComponent implements OnInit {
 
   control = new FormControl('');
   Cargos: string[] = ['ANCIANO', 'DIACONO', 'DIACONISA', 'SECRETARIA'];
-  filteredStreets!: Observable<string[]>;
+  filtrocargos!: Observable<string[]>;
 
   ngOnInit() {
-    this.filteredStreets = this.control.valueChanges.pipe(
+    this.filtrocargos = this.control.valueChanges.pipe(
       startWith(''),
       map(value => this._filter(value || '')),
     );
