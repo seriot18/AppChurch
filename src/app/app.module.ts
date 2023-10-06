@@ -6,14 +6,13 @@ import { AppComponent } from './app.component';
 import {AgregarEditarMiembrosComponent} from './components/agregar-editar-miembros/agregar-editar-miembros.component';
 import  ListadoMiembrosComponent from './components/listado-miembros/listado-miembros.component';
 import { VerMiembrosComponent } from './components/ver-miembros/ver-miembros.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 //Modulos
 import { SharedModule } from './shared/shared.module';
-
-
-
-
 
 
 
@@ -31,7 +30,11 @@ import { SharedModule } from './shared/shared.module';
     BrowserModule,
     AppRoutingModule,
     SharedModule,
-    
+    FormsModule, 
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatAutocompleteModule
+
     ],
   providers: [],
   bootstrap: [AppComponent]

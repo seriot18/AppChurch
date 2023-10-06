@@ -52,12 +52,19 @@
                 <mat-grid-tile>
 
 
-                    <mat-form-field>
+                   <mat-form-field> 
                         <mat-label>Cargo</mat-label>
-                        <input matInput placeholder="Escriba el Cargo">
-                      </mat-form-field>
-
-                      
+                        <input matInput type="text"
+                               placeholder="Escriba el Cargo"
+                               [formControl]="control"
+                               [matAutocomplete]="auto"                    
+                               >
+                </mat-form-field>
+             <mat-autocomplete #auto="matAutocomplete">
+               <mat-option *ngFor="let Cargos of filteredStreets | async" [value]="Cargos">
+                 {{Cargos}}
+               </mat-option>
+             </mat-autocomplete>
 
 
                 </mat-grid-tile>
