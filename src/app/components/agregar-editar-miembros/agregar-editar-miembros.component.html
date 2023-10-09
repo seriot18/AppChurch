@@ -71,23 +71,30 @@
             </mat-grid-tile>
 
             <mat-grid-tile [colspan]="2" >
-                <mat-form-field>
-                    <mat-label>
+
+                <div style="width:100px">
+                    <img [src]="url" object-fit="cover" width="100%" height="100%">
+                </div>
+
+                    <!-- <mat-label>
                         Foto de Miembro
                     </mat-label>
                     <ngx-mat-file-input matInput accept="image/*">                                        
-                    </ngx-mat-file-input>
-                </mat-form-field>
-
+                    </ngx-mat-file-input> -->
 
             </mat-grid-tile>
             
-            <mat-grid-tile [colspan]="2"> 
-                <button  mat-raised-button color="warn">
+            <mat-grid-tile [colspan]="2" > 
+                
+                
+                <button class="btnAceptar" (click)="profileupload.click()" mat-raised-button color="warn">
                     <mat-icon>photo</mat-icon>
                     Subir Imagen                    
-                </button>
-                <img [src]="url" width="150px" height="150px">
+            </button>
+
+                
+                
+                
             </mat-grid-tile>
             <mat-grid-tile [colspan]="2" >
                     <button mat-raised-button class="btnAceptar" color="primary" routerLink="/ListadoMiembros" >
@@ -103,7 +110,7 @@
     </mat-card>
 
 </div>
-
+<input hidden #profileupload type="file" (change)="onselectFile($event)">
 
 <!-- <input type="file" class="file-input" multiple (change)="onChange($event)" />
 

@@ -54,7 +54,7 @@ export class AgregarEditarMiembrosComponent implements OnInit {
   url="./assets/image.jpg";
 
 
-  onselectFile(e){
+  onselectFile(e:any){
     if(e.target.files){
       var reader = new FileReader();
       reader.readAsDataURL(e.target.files[0]);
