@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -8,6 +8,7 @@ import  ListadoMiembrosComponent from './components/listado-miembros/listado-mie
 import { VerMiembrosComponent } from './components/ver-miembros/ver-miembros.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from "@angular/common/http";
 
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
@@ -23,7 +24,7 @@ import { SharedModule } from './shared/shared.module';
     AppComponent,
     ListadoMiembrosComponent,
     VerMiembrosComponent,
-    AgregarEditarMiembrosComponent
+    AgregarEditarMiembrosComponent,
     
   ],
   imports: [
@@ -33,10 +34,13 @@ import { SharedModule } from './shared/shared.module';
     FormsModule, 
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    MatAutocompleteModule
+    MatAutocompleteModule,
+    HttpClientModule
 
     ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+    
 })
 export class AppModule { }

@@ -68,17 +68,81 @@
                  {{Cargos}}
                </mat-option>
              </mat-autocomplete>
+            </mat-grid-tile>
+
+            <mat-grid-tile [colspan]="2" >
+                <mat-form-field>
+                    <mat-label>
+                        Imagen de Miembro
+                    </mat-label>
+                    <ngx-mat-file-input matInput accept="image/*"></ngx-mat-file-input>
+                </mat-form-field>
 
 
             </mat-grid-tile>
-                <mat-grid-tile [colspan]="2" >
-                    <button mat-raised-button color="primary" routerLink="/ListadoMiembros" >
+            
+            <mat-grid-tile [colspan]="2"> 
+                <button mat-raised-button color="warn">
+                    <mat-icon>photo</mat-icon>
+                    Subir Imagen                    
+                </button>
+                <!-- <img src="./assets/Image.jpg" width="150px" height="150px"> -->
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="2" >
+                    <button mat-raised-button class="btnAceptar" color="primary" routerLink="/ListadoMiembros" >
                         Aceptar                    
                     </button>
-                </mat-grid-tile>
+                    <button mat-raised-button color="basic" routerLink="/ListadoMiembros" >
+                        Volver                    
+                    </button>
+            </mat-grid-tile>
             </mat-grid-list>
 
         </form>
     </mat-card>
 
 </div>
+
+
+<!-- <input type="file" class="file-input" multiple (change)="onChange($event)" />
+
+<div *ngIf="files.length" class="file-section">
+  <section *ngFor="let file of files">
+    File details:
+    <ul>
+      <li>Name: {{file.name}}</li>
+      <li>Type: {{file.type}}</li>
+      <li>Size: {{file.size}} bytes</li>
+    </ul>
+  </section>
+
+  <button (click)="onUpload()" class="upload-button">Upload the file</button>
+
+  <section [ngSwitch]="status">
+    <p *ngSwitchCase="'uploading'">⏳ Uploading...</p>
+    <p *ngSwitchCase="'success'">✅ Done!</p>
+    <p *ngSwitchCase="'fail'">❌ Error!</p>
+    <p *ngSwitchDefault>😶 Waiting to upload...</p>
+  </section>
+</div> -->
+
+
+
+
+<!-- <div class="wrapper">
+    <lr-file-uploader-regular
+      class="uploader-cfg"
+      css-src="https://unpkg.com/@uploadcare/blocks@0.24.1/web/file-uploader-regular.min.css"
+    >
+      <lr-data-output
+        (lr-data-output)="handleUploaderEvent($event)"
+        use-event
+        hidden
+        class="uploader-cfg"
+      ></lr-data-output>
+    </lr-file-uploader-regular>
+  
+    <div class="output">
+      <img *ngFor="let file of files" src="{{ file }}" width="300" />
+    </div>
+  </div> -->

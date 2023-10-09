@@ -7,3 +7,13 @@ mat-form-field{
     width: 100%;
     margin: 5px;
 }
+
+.delete{
+    cursor: pointer;
+    color:#E15639;
+
+  }
+
+.btnAceptar{
+    margin-right: 10px;
+}

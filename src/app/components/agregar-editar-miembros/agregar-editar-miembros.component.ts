@@ -1,11 +1,19 @@
 import {Component, OnInit} from '@angular/core';
 import {FormControl} from '@angular/forms';
-import {Observable} from 'rxjs';
+import {Observable, throwError} from 'rxjs';
 import {map, startWith, debounceTime} from 'rxjs/operators';
-import {NgFor, AsyncPipe, CommonModule} from '@angular/common';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import {
+  MatBottomSheet,
+  MatBottomSheetModule,
+  MatBottomSheetRef,
+} from '@angular/material/bottom-sheet';
+import {MatListModule} from '@angular/material/list';
+import {MatButtonModule} from '@angular/material/button';
+import { HttpClient } from '@angular/common/http';
+
+// import * as LR from "@uploadcare/blocks";
+
+// LR.registerBlocks(LR);
 
 
 @Component({
@@ -25,6 +33,8 @@ export class AgregarEditarMiembrosComponent implements OnInit {
   Cargos: string[] = ['ANCIANO', 'DIACONO', 'DIACONISA', 'SECRETARIA'];
   filtrocargos!: Observable<string[]>;
 
+
+
   ngOnInit() {
     this.filtrocargos = this.control.valueChanges.pipe(
       startWith(''),
@@ -40,14 +50,25 @@ export class AgregarEditarMiembrosComponent implements OnInit {
   private _normalizeValue(value: string): string {
     return value.toLowerCase().replace(/\s/g, '');
   }
+  
 
 
    constructor(){
 
    }
 
+
+ 
+
+  // files: any[] = [];
+
+  // handleUploaderEvent(e: Event) {
+  //   const { data: files } = (e as CustomEvent).detail;
+  //   this.files = files;
+  // }
   //  ngOnInit(){
 
   //  }
 
 }
+
