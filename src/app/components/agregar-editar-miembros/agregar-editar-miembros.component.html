@@ -73,20 +73,21 @@
             <mat-grid-tile [colspan]="2" >
                 <mat-form-field>
                     <mat-label>
-                        Imagen de Miembro
+                        Foto de Miembro
                     </mat-label>
-                    <ngx-mat-file-input matInput accept="image/*"></ngx-mat-file-input>
+                    <ngx-mat-file-input matInput accept="image/*">                                        
+                    </ngx-mat-file-input>
                 </mat-form-field>
 
 
             </mat-grid-tile>
             
             <mat-grid-tile [colspan]="2"> 
-                <button mat-raised-button color="warn">
+                <button  mat-raised-button color="warn">
                     <mat-icon>photo</mat-icon>
                     Subir Imagen                    
                 </button>
-                <!-- <img src="./assets/Image.jpg" width="150px" height="150px"> -->
+                <img [src]="url" width="150px" height="150px">
             </mat-grid-tile>
             <mat-grid-tile [colspan]="2" >
                     <button mat-raised-button class="btnAceptar" color="primary" routerLink="/ListadoMiembros" >
@@ -146,3 +147,20 @@
       <img *ngFor="let file of files" src="{{ file }}" width="300" />
     </div>
   </div> -->
+
+  <!-- <lr-config
+    ctx-name="my-uploader"
+    pubkey="YOUR_PUBLIC_KEY"
+    img-only="true"
+    multiple="true"
+    max-local-file-size-bytes="524288000"
+    use-cloud-image-editor="true"
+    source-list="local, url, camera, dropbox"
+>
+</lr-config>
+
+<lr-file-uploader-regular
+    ctx-name="my-uploader"
+    css-src="https://cdn.jsdelivr.net/npm/@uploadcare/blocks@0.26.0/web/lr-file-uploader-regular.min.css"
+>
+</lr-file-uploader-regular> -->

@@ -50,6 +50,19 @@ export class AgregarEditarMiembrosComponent implements OnInit {
   private _normalizeValue(value: string): string {
     return value.toLowerCase().replace(/\s/g, '');
   }
+
+  url="./assets/image.jpg";
+
+
+  onselectFile(e){
+    if(e.target.files){
+      var reader = new FileReader();
+      reader.readAsDataURL(e.target.files[0]);
+      reader.onload=(event:any)=>{
+        this.url=event.target.result;
+      }
+    }
+  }
   
 
 
@@ -60,15 +73,6 @@ export class AgregarEditarMiembrosComponent implements OnInit {
 
  
 
-  // files: any[] = [];
-
-  // handleUploaderEvent(e: Event) {
-  //   const { data: files } = (e as CustomEvent).detail;
-  //   this.files = files;
-  // }
-  //  ngOnInit(){
-
-  //  }
 
 }
 

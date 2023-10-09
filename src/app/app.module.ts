@@ -12,6 +12,7 @@ import { HttpClientModule } from "@angular/common/http";
 
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
+
 //Modulos
 import { SharedModule } from './shared/shared.module';
 
@@ -39,7 +40,7 @@ import { SharedModule } from './shared/shared.module';
 
     ],
   providers: [],
-  bootstrap: [AppComponent],
+  bootstrap: [AppComponent], 
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
     
 })
