@@ -19,7 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
-import { NgxMatFileInputModule } from '@angular-material-components/file-input';
+//import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 
 
 
@@ -56,7 +56,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
     //MatAutocompleteModule,
     BrowserAnimationsModule,
     MatBottomSheetModule,
-    NgxMatFileInputModule
+    //NgxMatFileInputModule
 
   ],
   exports:[
@@ -78,7 +78,7 @@ import { SpinnerComponent } from './spinner/spinner.component';
     //MatAutocompleteModule,
     BrowserAnimationsModule,
     MatBottomSheetModule,
-    NgxMatFileInputModule
+    //NgxMatFileInputModule
 
   ]
 })
