@@ -10,12 +10,12 @@
             <h1>Detalle del Miembro</h1>
             
         </mat-card-subtitle>
-        <form>
+        <form [formGroup]="form" (ngSubmit)="AgregarMiembro()">
             <mat-grid-list cols="2" rowHeight="80px">
                 <mat-grid-tile [colspan]="2">
                     <mat-form-field>
                         <mat-label>Nombre</mat-label>
-                        <input matInput placeholder="Escriba el nombre">
+                        <input required formControlName="Nombre" matInput placeholder="Escriba el nombre">
                       </mat-form-field>
 
                 </mat-grid-tile>
@@ -23,7 +23,7 @@
                     
                     <mat-form-field>
                         <mat-label>Apellido</mat-label>
-                        <input matInput placeholder="Escriba el Apellido">
+                        <input required formControlName="Apellido" matInput placeholder="Escriba el Apellido">
                     </mat-form-field>
 
                 </mat-grid-tile>
@@ -31,7 +31,7 @@
 
                     <mat-form-field>
                         <mat-label>Fecha de Nacimiento</mat-label>
-                        <input matInput [matDatepicker]="picker1">
+                        <input formControlName="FechaNac" matInput [matDatepicker]="picker1">
                         <mat-hint>MM/DD/YYYY</mat-hint>
                         <mat-datepicker-toggle matIconSuffix [for]="picker1"></mat-datepicker-toggle>
                         <mat-datepicker #picker1></mat-datepicker>
@@ -42,7 +42,7 @@
 
                     <mat-form-field>
                         <mat-label>Fecha de Bautismo</mat-label>
-                        <input matInput [matDatepicker]="picker2">
+                        <input formControlName="FechaBa" matInput [matDatepicker]="picker2">
                         <mat-hint>MM/DD/YYYY</mat-hint>
                         <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
                         <mat-datepicker #picker2></mat-datepicker>
@@ -56,7 +56,8 @@
                         <mat-label>
                             Cargo
                         </mat-label>
-                        <input
+                        <input 
+                               formControlName="Cargo"
                                matInput type="text"
                                placeholder="Escriba el Cargo"
                                [formControl]="control"
@@ -65,16 +66,16 @@
                     </mat-form-field>
              <mat-autocomplete #auto="matAutocomplete">
                <mat-option *ngFor="let Cargos of filtrocargos | async" [value]="Cargos">
-                 {{Cargos}}
+                 {{Cargos.toString()}}
                </mat-option>
              </mat-autocomplete>
             </mat-grid-tile>
 
             <mat-grid-tile [colspan]="2" >
 
-                <div style="width:100px">
+                <!-- <div style="width:100px">
                     <img [src]="url" object-fit="cover" width="100%" height="100%">
-                </div>
+                </div> -->
 
                     <!-- <mat-label>
                         Foto de Miembro
@@ -87,17 +88,17 @@
             <mat-grid-tile [colspan]="2" > 
                 
                 
-                <button class="btnAceptar" (click)="profileupload.click()" mat-raised-button color="warn">
+                <!-- <button class="btnAceptar" (click)="profileupload.click()" mat-raised-button color="warn">
                     <mat-icon>photo</mat-icon>
                     Subir Imagen                    
-            </button>
+            </button> -->
 
                 
                 
                 
             </mat-grid-tile>
             <mat-grid-tile [colspan]="2" >
-                    <button mat-raised-button class="btnAceptar" color="primary" routerLink="/ListadoMiembros" >
+                    <button [disabled]="form.invalid" type="submit" mat-raised-button class="btnAceptar" color="primary">
                         Aceptar                    
                     </button>
                     <button mat-raised-button color="basic" routerLink="/ListadoMiembros" >
@@ -110,7 +111,7 @@
     </mat-card>
 
 </div>
-<input hidden #profileupload type="file" (change)="onselectFile($event)">
+<!-- <input hidden #profileupload type="file" (change)="onselectFile($event)"> -->
 
 <!-- <input type="file" class="file-input" multiple (change)="onChange($event)" />
 

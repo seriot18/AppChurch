@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Observable, throwError} from 'rxjs';
 import {map, startWith, debounceTime} from 'rxjs/operators';
 import {
@@ -10,6 +10,7 @@ import {
 import {MatListModule} from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
 import { HttpClient } from '@angular/common/http';
+import { miembros } from 'src/app/interfaces/miembros';
 
 // import * as LR from "@uploadcare/blocks";
 
@@ -32,6 +33,7 @@ export class AgregarEditarMiembrosComponent implements OnInit {
   control = new FormControl('');
   Cargos: string[] = ['ANCIANO', 'DIACONO', 'DIACONISA', 'SECRETARIA'];
   filtrocargos!: Observable<string[]>;
+  form:FormGroup
 
 
 
@@ -51,24 +53,44 @@ export class AgregarEditarMiembrosComponent implements OnInit {
     return value.toLowerCase().replace(/\s/g, '');
   }
 
-  url="./assets/image.jpg";
+  // url="./assets/image.jpg";
 
 
-  onselectFile(e:any){
-    if(e.target.files){
-      var reader = new FileReader();
-      reader.readAsDataURL(e.target.files[0]);
-      reader.onload=(event:any)=>{
-        this.url=event.target.result;
-      }
-    }
-  }
+  // onselectFile(e:any){
+  //   if(e.target.files){
+  //     var reader = new FileReader();
+  //     reader.readAsDataURL(e.target.files[0]);
+  //     reader.onload=(event:any)=>{
+  //       this.url=event.target.result;
+  //     }
+  //   }
+  // }
   
 
 
-   constructor(){
-
+   constructor(private fb: FormBuilder){
+    this.form=this.fb.group({
+       Nombre:['', Validators.required],
+       Apellido:['', Validators.required],
+       FechaNac:[''],
+       FechaBa:[''],
+       Cargo:['']
+       
+    })
    }
+   AgregarMiembro(){
+    this.form.value.Cargo=this.control.value
+    console.log(this.form.value)
+
+    const miembros:miembros={
+      nombre:this.form.value.Nombre,
+      apellido:this.form.value.Apellido,
+      fechanac:this.form.value.FechaNac,
+      fechabautismo:this.form.value.FechaBa
+
+
+    }
+  }
 
 
  
