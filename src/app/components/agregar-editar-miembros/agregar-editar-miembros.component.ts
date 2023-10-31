@@ -74,12 +74,12 @@ export class AgregarEditarMiembrosComponent implements OnInit {
        Apellido:['', Validators.required],
        FechaNac:[''],
        FechaBa:[''],
-       Cargo:['']
+      //  Cargo:['']
        
     })
    }
    AgregarMiembro(){
-    this.form.value.Cargo=this.control.value
+    //this.form.value.Cargo=this.control.value
     console.log(this.form.value)
 
     const miembros:miembros={
