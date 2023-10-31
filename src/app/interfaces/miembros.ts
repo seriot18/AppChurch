@@ -8,7 +8,7 @@ export interface miembros{
 
 
 
-    id:number;
+    id?:number;
     nombre:string;
     apellido:string;
     fechanac:Date | string;

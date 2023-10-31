@@ -31,6 +31,7 @@ import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 
 //componentes
 import { SpinnerComponent } from './spinner/spinner.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -56,7 +57,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
     //MatAutocompleteModule,
     BrowserAnimationsModule,
     MatBottomSheetModule,
-    NgxMatFileInputModule
+    NgxMatFileInputModule,
+    ReactiveFormsModule
 
   ],
   exports:[
@@ -78,7 +80,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
     //MatAutocompleteModule,
     BrowserAnimationsModule,
     MatBottomSheetModule,
-    NgxMatFileInputModule
+    NgxMatFileInputModule,
+    ReactiveFormsModule
 
   ]
 })
