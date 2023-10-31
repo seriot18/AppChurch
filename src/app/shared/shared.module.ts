@@ -19,7 +19,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
-import { NgxMatFileInputModule } from '@angular-material-components/file-input';
+//import { NgxMatFileInputModule } from '@angular-material-components/file-input';
 
 
 
@@ -57,8 +57,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     //MatAutocompleteModule,
     BrowserAnimationsModule,
     MatBottomSheetModule,
-    NgxMatFileInputModule,
-    ReactiveFormsModule
+
 
   ],
   exports:[
@@ -80,8 +79,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     //MatAutocompleteModule,
     BrowserAnimationsModule,
     MatBottomSheetModule,
-    NgxMatFileInputModule,
-    ReactiveFormsModule
+
 
   ]
 })
