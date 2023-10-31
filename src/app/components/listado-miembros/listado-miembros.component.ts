@@ -69,7 +69,7 @@ export default class ListadoMiembrosComponent implements OnInit, AfterViewInit {
     this.loading=true;
     setTimeout(()=>{
       this.loading=false;
-      this._snackBar.open("Miembro Eliminado con Exito","Cerrar", {
+      this._snackBar.open("Miembro Eliminado con Exito","X", {
         duration:4000,
         horizontalPosition:'right'
         
