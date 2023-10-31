@@ -57,6 +57,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     //MatAutocompleteModule,
     BrowserAnimationsModule,
     MatBottomSheetModule,
+    ReactiveFormsModule
 
 
   ],
@@ -79,7 +80,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     //MatAutocompleteModule,
     BrowserAnimationsModule,
     MatBottomSheetModule,
-
+    ReactiveFormsModule
 
   ]
 })
