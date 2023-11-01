@@ -15,6 +15,7 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 
 //Modulos
 import { SharedModule } from './shared/shared.module';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -39,7 +40,7 @@ import { SharedModule } from './shared/shared.module';
     HttpClientModule
 
     ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent], 
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
     

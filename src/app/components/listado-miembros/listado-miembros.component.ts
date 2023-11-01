@@ -4,6 +4,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatSort } from '@angular/material/sort';
 import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import { miembros } from 'src/app/interfaces/miembros';
+import { MiembrosService } from 'src/app/services/miembros.service';
+import { DatePipe } from '@angular/common';
 
 
  //export interface PeriodicElement {
@@ -20,19 +22,6 @@ import { miembros } from 'src/app/interfaces/miembros';
     // fechabautismo:string;
  //}
 
-const listaMiembros: miembros[] = [
-  {id: 1, nombre: 'Jose Ramon', apellido: 'Fernandez', fechanac:'1991-08-18', fechabautismo:"2018-03-16"},
-  {id: 2, nombre: 'Brandy', apellido: 'De La Cruz', fechanac: '1991-08-18', fechabautismo:'1991-08-18'},
-  {id: 3, nombre: 'Auris Idelisa', apellido: 'Defillo', fechanac: '1991-08-18' , fechabautismo:'1991-08-18'},
-  {id: 4, nombre: 'Auris Idelisa', apellido: 'Defillo', fechanac: '1991-08-18' , fechabautismo:'1991-08-18'},
-  {id: 5, nombre: 'Auris Idelisa', apellido: 'Defillo', fechanac: '1991-08-18' , fechabautismo:'1991-08-18'},
-  {id: 6, nombre: 'Auris Idelisa', apellido: 'Defillo', fechanac: '1991-08-18' , fechabautismo:'1991-08-18'},
-  {id: 7, nombre: 'Auris Idelisa', apellido: 'Defillo', fechanac: '1991-08-18' , fechabautismo:'1991-08-18'},
-  {id: 8, nombre: 'Auris Idelisa', apellido: 'Defillo', fechanac: '1991-08-18' , fechabautismo:'1991-08-18'},
-  {id: 9, nombre: 'Auris Idelisa', apellido: 'Defillo', fechanac: '1991-08-18' , fechabautismo:'1991-08-18'},
-  
-];
-
 
 @Component({
   selector: 'app-listado-miembros',
@@ -42,19 +31,23 @@ const listaMiembros: miembros[] = [
 
 
 export default class ListadoMiembrosComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[] = ['id', 'nombre', 'apellido', 'fechanac', 'fechabautismo', 'acciones'];
+  displayedColumns: string[] = ['id', 'nombre', 'apellido', 'fechanac', 'fechaba', 'acciones'];
   //dataSource = listaMiembros;
-  dataSource = new MatTableDataSource<miembros>(listaMiembros);
+  dataSource = new MatTableDataSource<miembros>();
   loading:boolean=false;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private _snackBar: MatSnackBar){
+  
+  constructor(private _snackBar: MatSnackBar, private _miembrosServices:MiembrosService, private datePipe: DatePipe){
 
   }
 
+
+
   ngOnInit(): void{
+    this.obtenerMiembros();
 
   }
 
@@ -88,5 +81,15 @@ export default class ListadoMiembrosComponent implements OnInit, AfterViewInit {
       this.dataSource.paginator.firstPage();
     }
 
+  }
+
+  obtenerMiembros(){
+    this._miembrosServices.getMiembros().subscribe(data => {
+        this.dataSource.data=data;
+        console.log(data[2]);
+        var date = new Date();
+        console.log(this.datePipe.transform(date,"yyyy-MM-dd"));
+      }
+    )
   }
 }

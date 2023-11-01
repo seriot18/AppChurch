@@ -85,8 +85,8 @@ export class AgregarEditarMiembrosComponent implements OnInit {
     const miembros:miembros={
       nombre:this.form.value.Nombre,
       apellido:this.form.value.Apellido,
-      fechanac:this.form.value.FechaNac,
-      fechabautismo:this.form.value.FechaBa
+      fechaNac:this.form.value.FechaNac,
+      fechaBa:this.form.value.FechaBa
 
 
     }

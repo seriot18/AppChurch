@@ -8,9 +8,9 @@ export interface miembros{
 
 
 
-    id?:number;
-    nombre:string;
-    apellido:string;
-    fechanac:Date | string;
-    fechabautismo: Date | string;
+    id?: number;
+    nombre: string;
+    apellido: string;
+    fechaNac: string;
+    fechaBa: 	 string;
 }

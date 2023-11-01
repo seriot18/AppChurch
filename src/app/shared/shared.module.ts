@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 //@angular material
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -31,7 +34,7 @@ import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 
 //componentes
 import { SpinnerComponent } from './spinner/spinner.component';
-import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -57,7 +60,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     //MatAutocompleteModule,
     BrowserAnimationsModule,
     MatBottomSheetModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
 
 
   ],
@@ -80,7 +84,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     //MatAutocompleteModule,
     BrowserAnimationsModule,
     MatBottomSheetModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
 
   ]
 })
