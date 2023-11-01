@@ -16,4 +16,8 @@ export class MiembrosService {
   getMiembros(): Observable<miembros[]>{
     return this.http.get<miembros[]>(`${this.myAppUrl}${this.myApiUrl}`);
   }
+
+  getMiembro(id: number): Observable<miembros> {
+    return this.http.get<miembros>(`${this.myAppUrl}${this.myApiUrl}${id}`);
+  }
 }

@@ -84,11 +84,15 @@ export default class ListadoMiembrosComponent implements OnInit, AfterViewInit {
   }
 
   obtenerMiembros(){
-    this._miembrosServices.getMiembros().subscribe(data => {
-        this.dataSource.data=data;
-        console.log(data[2]);
-        var date = new Date();
-        console.log(this.datePipe.transform(date,"yyyy-MM-dd"));
+    this._miembrosServices.getMiembros().subscribe({
+        next: (data) => {
+          this.loading= false;
+          this.dataSource.data=data;
+        },
+        error: (e) => this.loading =false,
+        complete: () => console.log("complete")
+        
+
       }
     )
   }

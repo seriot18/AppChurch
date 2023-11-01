@@ -83,8 +83,8 @@ export class AgregarEditarMiembrosComponent implements OnInit {
     console.log(this.form.value)
 
     const miembros:miembros={
-      nombre:this.form.value.Nombre,
-      apellido:this.form.value.Apellido,
+      nombres:this.form.value.Nombre,
+      apellidos:this.form.value.Apellido,
       fechaNac:this.form.value.FechaNac,
       fechaBa:this.form.value.FechaBa
 

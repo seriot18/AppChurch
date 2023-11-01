@@ -9,8 +9,8 @@ export interface miembros{
 
 
     id?: number;
-    nombre: string;
-    apellido: string;
+    nombres: string;
+    apellidos: string;
     fechaNac: Date;
     fechaBa: Date;
 }
