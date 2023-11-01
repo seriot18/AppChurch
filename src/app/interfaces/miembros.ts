@@ -11,6 +11,6 @@ export interface miembros{
     id?: number;
     nombre: string;
     apellido: string;
-    fechaNac: string;
-    fechaBa: 	 string;
+    fechaNac: Date;
+    fechaBa: Date;
 }
