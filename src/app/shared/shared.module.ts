@@ -23,6 +23,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 //import { NgxMatFileInputModule } from '@angular-material-components/file-input';
+import {MatDialogModule} from '@angular/material/dialog';
 
 
 
@@ -61,8 +62,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
     BrowserAnimationsModule,
     MatBottomSheetModule,
     ReactiveFormsModule,
-    HttpClientModule
-
+    HttpClientModule,
+    MatDialogModule
 
   ],
   exports:[
@@ -85,7 +86,8 @@ import { SpinnerComponent } from './spinner/spinner.component';
     BrowserAnimationsModule,
     MatBottomSheetModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatDialogModule
 
   ]
 })

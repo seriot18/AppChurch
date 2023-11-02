@@ -56,6 +56,8 @@
             <mat-icon routerLink="/VerMiembro/{{ element.id }}" class="ver" matTooltip="Ver" fontIcon="search"></mat-icon>
             <mat-icon routerLink="/EditarMiembro/{{ element.id }}" class="edit" matTooltip="Editar" fontIcon="edit"></mat-icon>
             <mat-icon (click)="eliminarmiembro(element.id)" class="delete" matTooltip="Eliminar" fontIcon="delete"></mat-icon>
+            <!-- <button mat-raised-button (click)="openDialog('0ms', '0ms')">Open dialog without animation</button> -->
+
              </td>
         </ng-container>
 
@@ -69,7 +71,14 @@
 
       </div>
 
-
+      <h1 mat-dialog-title>Delete file</h1>
+      <div mat-dialog-content>
+        Would you like to delete cat.jpeg?
+      </div>
+      <div mat-dialog-actions>
+        <button mat-button mat-dialog-close>No</button>
+        <button mat-button mat-dialog-close cdkFocusInitial>Ok</button>
+      </div>
       
 
 

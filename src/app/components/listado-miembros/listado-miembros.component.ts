@@ -6,7 +6,8 @@ import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 import { miembros } from 'src/app/interfaces/miembros';
 import { MiembrosService } from 'src/app/services/miembros.service';
 import { DatePipe } from '@angular/common';
-
+import {MatDialog, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
 
  //export interface PeriodicElement {
   //name: string;
@@ -40,7 +41,9 @@ export default class ListadoMiembrosComponent implements OnInit, AfterViewInit {
   @ViewChild(MatSort) sort!: MatSort;
 
   
-  constructor(private _snackBar: MatSnackBar, private _miembrosServices:MiembrosService, private datePipe: DatePipe){
+  constructor(private _snackBar: MatSnackBar, 
+    private _miembrosServices:MiembrosService, 
+    private datePipe: DatePipe){
 
   }
 
