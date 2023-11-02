@@ -1,7 +1,8 @@
 <div class="title">
     <h1>Ver Miembro</h1>
 </div>
-
+<app-spinner *ngIf="loading"></app-spinner>
+<!-- <div *ngIf="miembro$ | async as miembro" class="container"></div> -->
 <div *ngIf="miembro != null" class="container">
     <mat-card class="card">
         <mat-card-title>

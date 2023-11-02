@@ -11,6 +11,9 @@ import {MatListModule} from '@angular/material/list';
 import {MatButtonModule} from '@angular/material/button';
 import { HttpClient } from '@angular/common/http';
 import { miembros } from 'src/app/interfaces/miembros';
+import { MiembrosService } from 'src/app/services/miembros.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { ActivatedRoute, Router } from '@angular/router';
 
 // import * as LR from "@uploadcare/blocks";
 
@@ -34,15 +37,48 @@ export class AgregarEditarMiembrosComponent implements OnInit {
   Cargos: string[] = ['ANCIANO', 'DIACONO', 'DIACONISA', 'SECRETARIA'];
   filtrocargos!: Observable<string[]>;
   form:FormGroup
+  id:number;
+  operacion:string="Agregar"
 
+
+
+
+  constructor(private fb: FormBuilder,
+    private _miembroServices:MiembrosService, private _snackBar: MatSnackBar, 
+    private router:Router,
+    private aRoute:ActivatedRoute){
+    this.form=this.fb.group({
+       Nombres:['', Validators.required],
+       Apellidos:['', Validators.required],
+       FechaNac:[''],
+       FechaBa:[''],
+      //  Cargo:['']
+       
+    })
+    
+
+    this.id=Number(this.aRoute.snapshot.paramMap.get('id'));
+  
+   }
 
 
   ngOnInit() {
+
     this.filtrocargos = this.control.valueChanges.pipe(
       startWith(''),
       map(value => this._filter(value || '')),
     );
+
+    if(this.id != 0){
+      this.operacion="Editar"
+      this.obternermiembro(this.id)
+    }
+
+
   }
+
+
+
 
   private _filter(value: string): string[] {
     const filterValue = this._normalizeValue(value);
@@ -68,19 +104,13 @@ export class AgregarEditarMiembrosComponent implements OnInit {
   
 
 
-   constructor(private fb: FormBuilder){
-    this.form=this.fb.group({
-       Nombre:['', Validators.required],
-       Apellido:['', Validators.required],
-       FechaNac:[''],
-       FechaBa:[''],
-      //  Cargo:['']
-       
-    })
-   }
-   AgregarMiembro(){
+  
+
+
+
+  agregarEditarMiembro(){
     //this.form.value.Cargo=this.control.value
-    console.log(this.form.value)
+    
 
     const miembros:miembros={
       nombres:this.form.value.Nombre,
@@ -88,8 +118,61 @@ export class AgregarEditarMiembrosComponent implements OnInit {
       fechaNac:this.form.value.FechaNac,
       fechaBa:this.form.value.FechaBa
 
+    }
+   
+    if(this.id != 0 ) {
+
+      miembros.id = this.id;
+      this.editarmiembro(this.id, miembros);
+
+    } else {
+      this.agregarmiembro(miembros);
 
     }
+
+
+  }
+
+  editarmiembro(id:number, miembros:miembros){
+    this.loading=true;
+    this.mensajeExito('actualizado')
+    this._miembroServices.updatemiembro(id,miembros).subscribe(() => {
+      this.loading=false;
+    })
+
+  }
+
+
+  
+  agregarmiembro(miembros:miembros){
+    this._miembroServices.addmiembro(miembros).subscribe(data => {
+      //console.log(data)
+      this.mensajeExito('registrada');
+      this.router.navigate(["/ListadoMiembros"]);
+
+    });
+  }
+  
+  obternermiembro(id:number){
+    this.loading=true;
+    this._miembroServices.getMiembro(id).subscribe(data => {
+      // console.log(data)
+      this.form.setValue({
+        Nombres: data.nombres,
+        Apellidos:data.apellidos,
+        FechaNac:data.fechaNac,
+        FechaBa:data.fechaBa
+      })
+      this.loading=false;
+    })
+  }
+  mensajeExito(text:string){
+    this.loading=false;
+    this._snackBar.open(`Miembro ${text} con Exito`,"X", {
+      duration:4000,
+      horizontalPosition:'right'
+      
+    });
   }
 
 

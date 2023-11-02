@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
 import { miembros } from 'src/app/interfaces/miembros';
 import { MiembrosService } from 'src/app/services/miembros.service';
 
@@ -14,6 +15,10 @@ export class VerMiembrosComponent implements OnInit {
   id:number;
   miembro!: miembros;
   
+  loading:boolean =false;
+  
+  
+  // miembro$!: Observable<miembros>
      
   constructor(private _miembroService:MiembrosService, 
     private aRoute: ActivatedRoute){  
@@ -22,6 +27,7 @@ export class VerMiembrosComponent implements OnInit {
   }
 
   ngOnInit(): void{
+    // this.miembro$=this._miembroService.getMiembro(this.id);
     this.obtenermiembro();
 
   }
@@ -29,10 +35,11 @@ export class VerMiembrosComponent implements OnInit {
   
 
   obtenermiembro() {
-
+    this.loading=true;
     this._miembroService.getMiembro(this.id).subscribe(data => {
       this.miembro = data;
-      console.log(data)
+      
+      this.loading=false;
     })
   }
 

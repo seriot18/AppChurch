@@ -31,7 +31,7 @@ import { DatePipe } from '@angular/common';
 
 
 export default class ListadoMiembrosComponent implements OnInit, AfterViewInit {
-  displayedColumns: string[] = ['id', 'nombre', 'apellido', 'fechanac', 'fechaba', 'acciones'];
+  displayedColumns: string[] = [ 'nombre', 'apellido', 'fechanac', 'fechaba', 'acciones'];
   //dataSource = listaMiembros;
   dataSource = new MatTableDataSource<miembros>();
   loading:boolean=false;
@@ -58,20 +58,29 @@ export default class ListadoMiembrosComponent implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
-  eliminarmiembro(){
+  eliminarmiembro(id:number){
     this.loading=true;
-    setTimeout(()=>{
+
+    this._miembrosServices.deletemiembro(id).subscribe(() =>{
+      this.mensajeExito();
       this.loading=false;
-      this._snackBar.open("Miembro Eliminado con Exito","X", {
-        duration:4000,
-        horizontalPosition:'right'
-        
-      });
-    },3000);
+      this.obtenerMiembros();
 
 
-    
+    });
 
+
+
+
+  }
+
+  mensajeExito(){
+    this.loading=false;
+    this._snackBar.open("Miembro Eliminado con Exito","X", {
+      duration:4000,
+      horizontalPosition:'right'
+      
+    });
   }
 
   applyFilter(event: Event) {

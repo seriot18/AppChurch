@@ -20,4 +20,22 @@ export class MiembrosService {
   getMiembro(id: number): Observable<miembros> {
     return this.http.get<miembros>(`${this.myAppUrl}${this.myApiUrl}${id}`);
   }
+
+  deletemiembro(id: number){
+    return this.http.delete(`${this.myAppUrl}${this.myApiUrl}${id}`);
+  }
+
+
+  addmiembro(miembro:miembros): Observable<miembros> {
+    return this.http.post<miembros>(`${this.myAppUrl}${this.myApiUrl}`,miembro);
+
+  }
+
+  updatemiembro(id: number, miembro:miembros):Observable<void>{
+    return this.http.put<void>(`${this.myAppUrl}${this.myApiUrl}${id}`,miembro);
+
+  }
+
+
+
 }
