@@ -47,7 +47,9 @@ export class AgregarEditarMiembrosComponent implements OnInit {
     private _miembroServices:MiembrosService, private _snackBar: MatSnackBar, 
     private router:Router,
     private aRoute:ActivatedRoute){
-    this.form=this.fb.group({
+    
+    
+      this.form=this.fb.group({
        Nombres:['', Validators.required],
        Apellidos:['', Validators.required],
        FechaNac:[''],
@@ -112,14 +114,23 @@ export class AgregarEditarMiembrosComponent implements OnInit {
     //this.form.value.Cargo=this.control.value
     
 
-    const miembros:miembros={
-      nombres:this.form.value.Nombre,
-      apellidos:this.form.value.Apellido,
+    const miembros:miembros = {
+      nombres:this.form.value.Nombres,
+      apellidos:this.form.value.Apellidos,
       fechaNac:this.form.value.FechaNac,
       fechaBa:this.form.value.FechaBa
 
     }
+    
+    // console.log(miembros)
    
+
+    // this._miembroServices.addmiembro(miembros).subscribe(data =>{
+    //   console.log(data)
+    // })
+
+
+
     if(this.id != 0 ) {
 
       miembros.id = this.id;
@@ -146,13 +157,15 @@ export class AgregarEditarMiembrosComponent implements OnInit {
   
   agregarmiembro(miembros:miembros){
     this._miembroServices.addmiembro(miembros).subscribe(data => {
-      //console.log(data)
+      console.log(data)
       this.mensajeExito('registrada');
       this.router.navigate(["/ListadoMiembros"]);
 
     });
   }
   
+
+
   obternermiembro(id:number){
     this.loading=true;
     this._miembroServices.getMiembro(id).subscribe(data => {
@@ -166,6 +179,8 @@ export class AgregarEditarMiembrosComponent implements OnInit {
       this.loading=false;
     })
   }
+
+
   mensajeExito(text:string){
     this.loading=false;
     this._snackBar.open(`Miembro ${text} con Exito`,"X", {
