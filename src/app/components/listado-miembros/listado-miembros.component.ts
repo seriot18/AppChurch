@@ -9,19 +9,8 @@ import { DatePipe } from '@angular/common';
 import {MatDialog, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
 
- //export interface PeriodicElement {
-  //name: string;
-  //position: number;
-  //weight: number;
-  //symbol: string;
 
 
-    // id:number;
-    // nombre:string;
-    // apellido:string;
-    // fechanac:string;
-    // fechabautismo:string;
- //}
 
 
 @Component({
@@ -43,8 +32,7 @@ export default class ListadoMiembrosComponent implements OnInit, AfterViewInit {
   
   constructor(private _snackBar: MatSnackBar, 
     private _miembrosServices:MiembrosService, 
-    private datePipe: DatePipe,
-    public dialog: MatDialog){
+    private datePipe: DatePipe){
 
   }
 
@@ -74,6 +62,14 @@ export default class ListadoMiembrosComponent implements OnInit, AfterViewInit {
 
     });
 
+
+
+
+
+
+
+
+    
 
 
 

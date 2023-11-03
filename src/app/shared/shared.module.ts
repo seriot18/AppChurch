@@ -33,6 +33,7 @@ import {MatDialogModule} from '@angular/material/dialog';
 
 
 
+
 //componentes
 import { SpinnerComponent } from './spinner/spinner.component';
 
@@ -64,7 +65,6 @@ import { SpinnerComponent } from './spinner/spinner.component';
     ReactiveFormsModule,
     HttpClientModule,
     MatDialogModule
-
   ],
   exports:[
     MatSlideToggleModule,
@@ -88,7 +88,6 @@ import { SpinnerComponent } from './spinner/spinner.component';
     ReactiveFormsModule,
     HttpClientModule,
     MatDialogModule
-
   ]
 })
 

@@ -25,6 +25,11 @@ import { DatePipe } from '@angular/common';
 
 
 
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { ConfirmationDialogComponent } from './components/confirmation-dialog/confirmation-dialog.component';
+
+
 
 
 
@@ -34,6 +39,8 @@ import { DatePipe } from '@angular/common';
     ListadoMiembrosComponent,
     VerMiembrosComponent,
     AgregarEditarMiembrosComponent,
+    ConfirmationDialogComponent,
+
     
   ],
   imports: [
