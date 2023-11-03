@@ -43,7 +43,8 @@ export default class ListadoMiembrosComponent implements OnInit, AfterViewInit {
   
   constructor(private _snackBar: MatSnackBar, 
     private _miembrosServices:MiembrosService, 
-    private datePipe: DatePipe){
+    private datePipe: DatePipe,
+    public dialog: MatDialog){
 
   }
 
@@ -62,6 +63,7 @@ export default class ListadoMiembrosComponent implements OnInit, AfterViewInit {
   }
 
   eliminarmiembro(id:number){
+    
     this.loading=true;
 
     this._miembrosServices.deletemiembro(id).subscribe(() =>{

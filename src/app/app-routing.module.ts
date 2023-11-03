@@ -5,13 +5,14 @@ import { VerMiembrosComponent } from './components/ver-miembros/ver-miembros.com
 import { AgregarEditarMiembrosComponent } from './components/agregar-editar-miembros/agregar-editar-miembros.component';
 
 
+
 const routes: Routes = [
-  {path:'', redirectTo: 'ListadoMiembros',pathMatch:'full'},
+  {path:'', redirectTo: '/ListadoMiembros',pathMatch:'full'},
   {path:'ListadoMiembros', component:ListadoMiembrosComponent},
   {path:'VerMiembro/:id', component:VerMiembrosComponent},
   {path:'EditarMiembro/:id', component:AgregarEditarMiembrosComponent},
   {path:'AgregarMiembro', component:AgregarEditarMiembrosComponent},
-  {path:'**', redirectTo: 'ListadoMiembros',pathMatch:'full'}
+  {path:'**', redirectTo: '/ListadoMiembros',pathMatch:'full'}
   
 ];
 
