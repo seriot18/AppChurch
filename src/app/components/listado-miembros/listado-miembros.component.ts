@@ -8,6 +8,7 @@ import { MiembrosService } from 'src/app/services/miembros.service';
 import { DatePipe } from '@angular/common';
 import {MatDialog, MatDialogRef, MatDialogModule} from '@angular/material/dialog';
 import {MatButtonModule} from '@angular/material/button';
+import { DialogElementsExampleDialogComponent } from '../dialog-elements-example-dialog/dialog-elements-example-dialog.component';
 
 
 
@@ -31,10 +32,27 @@ export default class ListadoMiembrosComponent implements OnInit, AfterViewInit {
 
   
   constructor(private _snackBar: MatSnackBar, 
-    private _miembrosServices:MiembrosService, 
+    private _miembrosServices:MiembrosService,
+    public dialog: MatDialog,
     private datePipe: DatePipe){
 
   }
+  
+
+  // openDialog() {
+  //   this.dialog.open(DialogElementsExampleDialogComponent);
+  // }
+
+  // openDialog(enterAnimationDuration: string, exitAnimationDuration: string): void {
+  //   this.dialog.open(DialogElementsExampleDialogComponent, {
+  //     width: '250px',
+  //     enterAnimationDuration,
+  //     exitAnimationDuration,
+
+
+  //   });
+  // }
+
 
 
 
@@ -50,6 +68,22 @@ export default class ListadoMiembrosComponent implements OnInit, AfterViewInit {
     this.dataSource.sort = this.sort;
   }
 
+
+  mostrarDialogo(id:number, nombre:string): void {
+    this.dialog
+      .open(DialogElementsExampleDialogComponent, {
+        data: "¿Esta seguro que desea borrar el registro "+nombre+"?"
+      })
+      .afterClosed()
+      .subscribe((confirmado: Boolean) => {
+        if (confirmado) {
+          this.eliminarmiembro(id);
+        } else {
+          
+        }
+      });
+  }
+
   eliminarmiembro(id:number){
     
     this.loading=true;
@@ -58,20 +92,20 @@ export default class ListadoMiembrosComponent implements OnInit, AfterViewInit {
       this.mensajeExito();
       this.loading=false;
       this.obtenerMiembros();
-
+      
 
     });
 
-
-
-
-
-
-
-
     
+  }
 
+  validatedelete(val:boolean){
+    if(val==true){
+      "eliminarmiembro(element.id)"      
+    }
+    else{
 
+    }
 
   }
 
