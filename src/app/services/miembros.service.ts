@@ -3,6 +3,7 @@ import { environment } from '../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { miembros } from '../interfaces/miembros';
+//import { Frase } from "../modelos/frase";
 
 @Injectable({
   providedIn: 'root'
@@ -11,10 +12,12 @@ export class MiembrosService {
   private myAppUrl: string = environment.endpoint;
   private myApiUrl: string = 'api/Miembros/';
 
+
   constructor(private http: HttpClient) { }
 
   getMiembros(): Observable<miembros[]>{
     return this.http.get<miembros[]>(`${this.myAppUrl}${this.myApiUrl}`);
+    //return this.http.get<Frase>(this.MyURL); 
   }
 
   getMiembro(id: number): Observable<miembros> {
